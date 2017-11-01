@@ -83,6 +83,10 @@ RUN cd /tmp/build/nginx/${NGINX_VERSION} && \
     mkdir /tmp/nginx-client-body && \
     rm -rf /tmp/build
 
+# Copy the XML Stylesheet
+RUN mkdir /data
+COPY stat.xsl /data/stat.xsl
+
 # Remove build prerequisites
 RUN apk del build-base openssl-dev && \
     rm -rf /var/cache/apk/*
